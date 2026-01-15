@@ -1,65 +1,98 @@
-// HeroSection.tsx
 import React from 'react';
 import { Button } from './ui/button';
 
 interface HeroSectionProps {
   name: string;
   role?: string;
-  description?: string;
-  ctaText?: string;
-  ctaLink?: string;
+
+  intro?: string;
+  mission?: string;
+
+  primaryCtaText?: string;
+  primaryCtaLink?: string;
+
+  secondaryCtaText?: string;
+  secondaryCtaLink?: string;
+
   backgroundImage?: string;
 }
 
 export const HeroSection: React.FC<HeroSectionProps> = ({
   name,
   role = 'Developer',
-  description = "I build reliable and thoughtful digital experiences.",
-  ctaText,
-  ctaLink,
+
+  intro = 'I build reliable and thoughtful digital experiences.',
+  mission,
+
+  primaryCtaText = 'Me contacter',
+  primaryCtaLink = '#contact',
+
+  secondaryCtaText,
+  secondaryCtaLink,
+
   backgroundImage,
 }) => {
   return (
     <section
       id="hero"
-      className="min-h-screen flex items-center relative overflow-hidden"
+      className="min-h-screen flex items-center relative overflow-hidden px-6"
     >
-      {/* Background Image */}
+      {/* Background */}
       {backgroundImage && (
         <div className="absolute inset-0 opacity-5 dark:opacity-10">
           <img
             src={backgroundImage}
             alt="Background"
             className="w-full h-full object-cover"
-            style={{ filter: 'blur(2px)' }}
           />
         </div>
       )}
 
       <div className="relative z-10 max-w-3xl">
-        <h2 className="text-4xl md:text-5xl font-bold mb-6 dark:text-white">
+        {/* Headline */}
+        <h1 className="text-4xl md:text-6xl font-bold mb-6 leading-tight dark:text-white">
           Hi, my name is
           <br />
-          <span className="text-blue-600 dark:text-blue-400">{name}</span>
-        </h2>
+          <span className="text-blue-600 dark:text-blue-400">
+            {name}
+          </span>
+        </h1>
 
+        {/* Role */}
         {role && (
-          <p className="text-xl text-gray-600 dark:text-gray-300 mb-4">
+          <p className="text-xl md:text-2xl text-gray-600 dark:text-gray-300 mb-6">
             {role}
           </p>
         )}
 
-        {description && (
-          <p className="text-lg text-gray-500 dark:text-gray-400 mb-6">
-            {description}
+        {/* Intro */}
+        {intro && (
+          <p className="text-lg text-gray-500 dark:text-gray-400 mb-4">
+            {intro}
           </p>
         )}
 
-        {ctaText && ctaLink && (
-          <Button variant="outline" size="lg">
-            <a href={ctaLink}>{ctaText}</a>
-          </Button>
+        {/* Mission / LesCracks */}
+        {mission && (
+          <p className="text-lg text-gray-500 dark:text-gray-400 mb-8">
+            {mission}
+          </p>
         )}
+
+        {/* CTA */}
+        <div className="flex flex-wrap gap-4">
+          {primaryCtaText && primaryCtaLink && (
+            <Button size="lg">
+              <a href={primaryCtaLink}>{primaryCtaText}</a>
+            </Button>
+          )}
+
+          {secondaryCtaText && secondaryCtaLink && (
+            <Button variant="outline" size="lg">
+              <a href={secondaryCtaLink}>{secondaryCtaText}</a>
+            </Button>
+          )}
+        </div>
       </div>
     </section>
   );

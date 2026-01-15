@@ -9,6 +9,9 @@ import { ExperienceSection } from './components/ExperienceSection';
 import { CertificationsSection } from './components/CertificationsSection';
 import { WorkSection } from './components/WorkSection';
 import { ContactSection } from './components/ContactSection';
+import { CursorLightEffect } from './components/CursorLightEffect';
+
+import heroImage from './assets/me.jpeg';
 
 const App = () => {
   const [activeSection, setActiveSection] = useState<string>('about');
@@ -54,6 +57,9 @@ const App = () => {
       ref={appRef}
       className="flex flex-col md:flex-row min-h-screen transition-colors duration-300"
     >
+      {/* ========================= CURSOR LIGHT EFFECT ========================= */}
+      <CursorLightEffect />
+
       {/* ============================ SIDEBAR ============================ */}
       <Sidebar
         sections={['about', 'skills', 'experience', 'certifications', 'work', 'contact']}
@@ -63,7 +69,23 @@ const App = () => {
 
       {/* ========================= MAIN CONTENT ========================== */}
       <main className="w-full md:w-2/3 md:ml-auto p-8 md:p-12 space-y-32">
-        <HeroSection />
+        <HeroSection
+          name="Kamga Brandon"
+          role="Fullstack AI Developer"
+
+          intro="Passionné par l’ingénierie logicielle, le développement web et le DevOps/Cloud, avec un intérêt marqué pour le machine learning."
+
+          mission="En parallèle, à travers mon agence LesCracks, j’accompagne de jeunes profils ambitieux dans leur montée en compétences afin de faire la différence et d’accéder à des opportunités professionnelles à fort impact."
+
+          primaryCtaText="Me contacter"
+          primaryCtaLink="#contact"
+
+          secondaryCtaText="Visiter LesCracks"
+          secondaryCtaLink="https://lescracks.com"
+          backgroundImage={heroImage}
+        />
+
+
         <SkillsSection />
         <ExperienceSection />
         <CertificationsSection />
