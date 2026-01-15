@@ -1,0 +1,39 @@
+{
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": "Brandon Kamga",
+  "alternateName": ["Kamga Brandon", "Brandon", "Kamga"],
+  "jobTitle": "Développeur Full Stack & DevOps Engineer",
+  "description": "Développeur full stack spécialisé en React, TypeScript, Python, DevOps et Machine Learning",
+  "url": "https://brandonkamga.dev",
+  "image": "https://brandonkamga.dev/moi.png",
+  "sameAs": [
+    "https://github.com/brandonkamga",
+    "https://linkedin.com/in/brandonkamga",
+    "https://twitter.com/brandonkamga"
+  ],
+  "knowsAbout": [
+    "React",
+    "TypeScript", 
+    "Python",
+    "DevOps",
+    "Machine Learning",
+    "Full Stack Development",
+    "Web Development",
+    "CI/CD",
+    "GitHub Actions",
+    "FastAPI",
+    "Docker",
+    "Cloud Computing"
+  ],
+  "worksFor": {
+    "@type": "Organization",
+    "name": "Freelance"
+  },
+  "address": {
+    "@type": "PostalAddress",
+    "addressCountry": "FR"
+  },
+  "email": "contact@brandonkamga.dev",
+  "telephone": "+33-XXX-XXX-XXX"
+}
