@@ -21,7 +21,7 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
         <div>
           <h3 className="text-2xl font-bold mb-3 text-gray-800 dark:text-gray-200">{title}</h3>
-          <p className="text-gray-500 dark:text-gray-400 mb-4">{technologies}</p>
+          <p className="text-blue-600 dark:text-blue-400 mb-4">{technologies}</p>
           <p className="text-gray-600 dark:text-gray-300 mb-6">{description}</p>
           <Button variant="outline" size="sm">
             <a href={projectUrl}>{title === 'Portfolio Personnel' ? 'Voir le projet' : 'Voir le projet'}</a>

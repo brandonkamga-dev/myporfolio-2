@@ -51,7 +51,7 @@ export const SkillsSection: React.FC = () => {
         />
 
         <SkillTable
-          title="Frameworks & Backend"
+          title="Frameworks & Librairies"
           skills={[
             { name: 'React', icon: SiReact },
             { name: 'Next.js', icon: SiNextdotjs },

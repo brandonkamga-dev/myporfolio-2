@@ -1,67 +1,23 @@
 import React from 'react';
 import { ExperienceCard } from './ExperienceCard';
 import { Button } from './ui/button';
+import { experiences } from '@/constants/Experience';
 
 export const ExperienceSection: React.FC = () => {
-  const experiences = [
-    {
-      title: 'Baccalauréat C – Mention Assez Bien',
-      company: 'Collège FAPO',
-      period: '2021 – 2022',
-      location: 'Cameroun',
-      description: '',
-      responsibilities: [],
-    },
-    {
-      title: 'Backend Co-Lead',
-      company: 'Google Developer Student Club',
-      period: '2023 – 2024',
-      location: 'Université de Yaoundé 1',
-      description: '',
-      responsibilities: [
-        'Organisation d\'ateliers backend modernes (Spring Boot)',
-        'Encadrement technique de projets étudiants',
-        'Formation de 20+ développeurs juniors',
-      ],
-    },
-    {
-      title: 'Technical Instructor',
-      company: 'Technopole Training School',
-      period: 'Avril – Juin 2024',
-      location: 'Yaoundé',
-      description: '',
-      responsibilities: [
-        'Formateur HTML, CSS, JS, Node.js pour étudiants et pros en reconversion',
-        'Développement de programmes de formation personnalisés',
-        'Taux de réussite de 100% des apprenants',
-      ],
-    },
-    {
-      title: 'DevOps & Full Stack Developer',
-      company: 'PropentaTech Saving Solution',
-      period: 'Depuis Avril 2025',
-      location: 'Yaoundé',
-      description: '',
-      responsibilities: [
-        'Stack Spring Boot + React',
-        'CI/CD avec Jenkins, GitHub Actions, Docker',
-        'Architecture microservices scalable',
-      ],
-    },
-    {
-      title: 'Full Stack AI Developer internship',
-      company: 'Seed Softengine',
-      period: 'Depuis Mai 2025',
-      location: 'Yaoundé',
-      description: '',
-      responsibilities: [
-        'Développement d\'extension web',
-        'Développement backend avec Node.js',
-        'Responsable de la culture DevOps d\'équipe',
-        'Intégration d\'API d\'IA générative',
-      ],
-    },
-  ];
+  
+
+  // Trier du plus récent au plus ancien basé sur la période de fin
+  const sortedExperiences = experiences.slice().sort((a, b) => {
+    const getEndYear = (period: string) => {
+      if (period.includes('Aujourd’hui')) return new Date().getFullYear();
+      const match = period.match(/(\d{4})$/);
+      return match ? parseInt(match[1]) : 0;
+    };
+    return getEndYear(b.period) - getEndYear(a.period);
+  });
+
+  // Prendre seulement les 3 expériences les plus récentes
+  const top3Experiences = sortedExperiences.slice(0, 3);
 
   return (
     <section id="experience" className="py-20">
@@ -71,19 +27,21 @@ export const ExperienceSection: React.FC = () => {
       </p>
 
       <div className="space-y-10">
-        {experiences.map((experience, index) => (
+        {top3Experiences.map((experience, index) => (
           <ExperienceCard key={index} {...experience} />
         ))}
       </div>
 
-      <div className="mt-12">
+      <div className="mt-12 flex flex-wrap gap-4">
         <Button variant="outline">
           <a href="/resume.pdf" download>
             Télécharger mon CV
           </a>
         </Button>
+        <Button>
+          <a href="/experiences">Voir toutes les expériences</a>
+        </Button>
       </div>
     </section>
   );
 };
-
