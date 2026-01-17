@@ -3,7 +3,7 @@ name: Deploy my Portfolio
 on:
   push:
     branches:
-      - main
+      - master
 
 jobs:
   deploy:
@@ -21,8 +21,8 @@ jobs:
 
       - name: Build & Push Docker image
         run: |
-          docker build -t your-dockerhub-username/myportfolio:latest .
-          docker push your-dockerhub-username/myportfolio:latest
+          docker build -t your-dockerhub-username/react-app:latest .
+          docker push your-dockerhub-username/react-app:latest
 
       - name: Deploy on VPS
         uses: appleboy/ssh-action@v1

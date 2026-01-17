@@ -1,25 +1,45 @@
 version: "3.9"
 
 services:
-  proxy:
-    image: jc21/nginx-proxy-manager:latest
-    container_name: nginx_proxy_manager
+  nginx-proxy:
+    image: nginxproxy/nginx-proxy
+    container_name: nginx_proxy
     restart: always
     ports:
       - "80:80"
       - "443:443"
-      - "81:81" # UI
     volumes:
-      - npm_data:/data
-      - npm_letsencrypt:/etc/letsencrypt
+      - /var/run/docker.sock:/tmp/docker.sock:ro
+      - nginx_certs:/etc/nginx/certs
+      - nginx_vhost:/etc/nginx/vhost.d
+      - nginx_html:/usr/share/nginx/html
+    labels:
+      - "com.github.jrcs.letsencrypt_nginx_proxy_companion.nginx_proxy=true"
+
+  letsencrypt:
+    image: nginxproxy/acme-companion
+    container_name: nginx_letsencrypt
+    restart: always
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock:ro
+      - nginx_certs:/etc/nginx/certs
+      - nginx_vhost:/etc/nginx/vhost.d
+      - nginx_html:/usr/share/nginx/html
+      - acme:/etc/acme.sh
+    environment:
+      - NGINX_PROXY_CONTAINER=nginx_proxy
 
   frontend:
-    image: your-dockerhub-username/react-app:latest
+    image: brandonkamga237/react-app:latest
     container_name: react_frontend
     restart: always
-    expose:
-      - "80"
+    environment:
+      - VIRTUAL_HOST=brandonkamga.griote.org
+      - LETSENCRYPT_HOST=brandonkamga.griote.org
+      - LETSENCRYPT_EMAIL=brandonkamga237@gmail.com
 
 volumes:
-  npm_data:
-  npm_letsencrypt:
+  nginx_certs:
+  nginx_vhost:
+  nginx_html:
+  acme:
