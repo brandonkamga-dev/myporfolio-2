@@ -1,0 +1,68 @@
+{
+  "nav": {
+    "about": "À propos",
+    "skills": "Compétences",
+    "experience": "Parcours",
+    "certifications": "Certifications",
+    "work": "Projets",
+    "contact": "Contact"
+  },
+  "hero": {
+    "greeting": "Salut, je m'appelle",
+    "name": "Kamga Brandon",
+    "role": "Développeur Fullstack IA",
+    "intro": "Passionné par l'ingénierie logicielle, le développement web et le DevOps/Cloud, avec un intérêt marqué pour le machine learning.",
+    "mission": "En parallèle, à travers mon agence LesCracks, j'accompagne de jeunes profils ambitieux dans leur montée en compétences afin de faire la différence et d'accéder à des opportunités professionnelles à fort impact.",
+    "ctaPrimary": "Me contacter",
+    "ctaSecondary": "Visiter LesCracks"
+  },
+  "sidebar": {
+    "name": "Kamga Brandon",
+    "role": "Développeur Fullstack IA",
+    "description": "Passionné par l'ingénierie logicielle, le développement web et le DevOps/Cloud, avec un intérêt marqué pour le machine learning."
+  },
+  "sections": {
+    "skills": {
+      "title": "Compétences & Technologies",
+      "subtitle": "Expertise technique et outils",
+      "languages": "Langages",
+      "frameworks": "Frameworks & Librairies",
+      "tools": "Outils"
+    },
+    "experience": {
+      "title": "Parcours",
+      "subtitle": "Éducation, expériences professionnelles et leadership technique",
+      "allExperiences": "Voir toutes les expériences",
+      "downloadCV": "Télécharger mon CV"
+    },
+    "certifications": {
+      "title": "Certifications",
+      "subtitle": "Certifications professionnelles et réalisations",
+      "verify": "Vérifier"
+    },
+    "work": {
+      "title": "Projets",
+      "subtitle": "Quelques réalisations qui illustrent mes compétences techniques",
+      "viewAll": "Voir tous les projets"
+    },
+    "contact": {
+      "title": "Contact",
+      "subtitle": "Travaillons ensemble"
+    }
+  },
+  "pages": {
+    "projects": {
+      "title": "Tous les projets",
+      "back": "Retour au portfolio"
+    },
+    "experiences": {
+      "title": "Toutes les expériences",
+      "back": "Retour au portfolio"
+    }
+  },
+  "common": {
+    "back": "Retour",
+    "loading": "Chargement...",
+    "error": "Erreur"
+  }
+}

@@ -1,0 +1,68 @@
+{
+  "nav": {
+    "about": "About",
+    "skills": "Skills",
+    "experience": "Experience",
+    "certifications": "Certifications",
+    "work": "Work",
+    "contact": "Contact"
+  },
+  "hero": {
+    "greeting": "Hi, my name is",
+    "name": "Kamga Brandon",
+    "role": "Fullstack AI Developer",
+    "intro": "Passionate about software engineering, web development and DevOps/Cloud, with a strong interest in machine learning.",
+    "mission": "In parallel, through my LesCracks agency, I accompany ambitious young profiles in their professional development to make a difference and access high-impact career opportunities.",
+    "ctaPrimary": "Contact me",
+    "ctaSecondary": "Visit LesCracks"
+  },
+  "sidebar": {
+    "name": "Kamga Brandon",
+    "role": "Fullstack AI Developer",
+    "description": "Passionate about software engineering, web development and DevOps/Cloud, with a strong interest in machine learning."
+  },
+  "sections": {
+    "skills": {
+      "title": "Skills & Technologies",
+      "subtitle": "Technical expertise and tools",
+      "languages": "Languages",
+      "frameworks": "Frameworks & Libraries",
+      "tools": "Tools"
+    },
+    "experience": {
+      "title": "Experience",
+      "subtitle": "Education, professional experiences and technical leadership",
+      "allExperiences": "All experiences",
+      "downloadCV": "Download my CV"
+    },
+    "certifications": {
+      "title": "Certifications",
+      "subtitle": "Professional certifications and achievements",
+      "verify": "Verify"
+    },
+    "work": {
+      "title": "Projects",
+      "subtitle": "Some achievements that illustrate my technical skills",
+      "viewAll": "View all projects"
+    },
+    "contact": {
+      "title": "Contact",
+      "subtitle": "Let's work together"
+    }
+  },
+  "pages": {
+    "projects": {
+      "title": "All projects",
+      "back": "Back to portfolio"
+    },
+    "experiences": {
+      "title": "All experiences",
+      "back": "Back to portfolio"
+    }
+  },
+  "common": {
+    "back": "Back",
+    "loading": "Loading...",
+    "error": "Error"
+  }
+}
