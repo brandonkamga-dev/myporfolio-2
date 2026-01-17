@@ -1,8 +1,9 @@
 version: "3.9"
 
 services:
+  # Proxy Nginx qui gère tous les containers avec VIRTUAL_HOST
   nginx-proxy:
-    image: nginxproxy/nginx-proxy
+    image: nginxproxy/nginx-proxy:latest
     container_name: nginx_proxy
     restart: always
     ports:
@@ -16,8 +17,9 @@ services:
     labels:
       - "com.github.jrcs.letsencrypt_nginx_proxy_companion.nginx_proxy=true"
 
+  # Génération automatique des certificats Let's Encrypt
   letsencrypt:
-    image: nginxproxy/acme-companion
+    image: nginxproxy/acme-companion:latest
     container_name: nginx_letsencrypt
     restart: always
     volumes:
@@ -29,10 +31,13 @@ services:
     environment:
       - NGINX_PROXY_CONTAINER=nginx_proxy
 
+  # Ton portfolio React
   frontend:
     image: brandonkamga237/myporfolio:latest
     container_name: react_frontend
     restart: always
+    expose:
+      - "80"  # expose le port 80 pour nginx-proxy
     environment:
       - VIRTUAL_HOST=brandonkamga.griote.org
       - LETSENCRYPT_HOST=brandonkamga.griote.org
