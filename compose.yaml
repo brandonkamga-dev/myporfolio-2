@@ -30,7 +30,7 @@ services:
       - NGINX_PROXY_CONTAINER=nginx_proxy
 
   frontend:
-    image: brandonkamga237/react-app:latest
+    image: brandonkamga237/myporfolio:latest
     container_name: react_frontend
     restart: always
     environment:
