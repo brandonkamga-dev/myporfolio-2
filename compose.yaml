@@ -31,7 +31,7 @@ services:
     restart: unless-stopped
     labels:
       - "traefik.enable=true"
-      - "traefik.http.routers.portfolio.rule=Host(`brandonkamga.griote.org`)"
+      - "traefik.http.routers.portfolio.rule=Host(`brandonkamga237.griote.org`)"
       - "traefik.http.routers.portfolio.entrypoints=websecure"
       - "traefik.http.routers.portfolio.tls.certresolver=letsencrypt"
       - "traefik.http.services.portfolio.loadbalancer.server.port=80"

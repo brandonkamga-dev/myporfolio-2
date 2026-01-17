@@ -36,13 +36,13 @@
 
 ### 2. **Configurer Google Search Console**
 1. Allez sur https://search.google.com/search-console
-2. Ajoutez votre propriété : `https://brandonkamga.dev`
+2. Ajoutez votre propriété : `https://brandonkamga237.dev`
 3. Téléchargez le fichier de vérification HTML
 4. Remplacez `public/google-site-verification.html`
 
 ### 3. **Soumettre le Sitemap**
 ```
-URL du sitemap : https://brandonkamga.dev/sitemap.xml
+URL du sitemap : https://brandonkamga237.dev/sitemap.xml
 ```
 
 ### 4. **Configurer Google Analytics (Optionnel)**
@@ -104,9 +104,9 @@ URL du sitemap : https://brandonkamga.dev/sitemap.xml
 ## 📱 Réseaux Sociaux
 
 Assurez-vous que vos profils sont optimisés :
-- **GitHub** : https://github.com/brandonkamga
-- **LinkedIn** : https://linkedin.com/in/brandonkamga
-- **Twitter** : https://twitter.com/brandonkamga
+- **GitHub** : https://github.com/brandonkamga237
+- **LinkedIn** : https://linkedin.com/in/brandonkamga237
+- **Twitter** : https://twitter.com/brandonkamga237
 
 ## ✅ Checklist de Déploiement
 
