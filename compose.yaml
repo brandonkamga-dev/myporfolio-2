@@ -1,50 +1,46 @@
 version: "3.9"
 
 services:
-  # Proxy Nginx qui gère tous les containers avec VIRTUAL_HOST
-  nginx-proxy:
-    image: nginxproxy/nginx-proxy:latest
-    container_name: nginx_proxy
+  traefik:
+    image: traefik:v2.10
+    container_name: traefik
     restart: always
+    command:
+      - "--providers.docker=true"
+      - "--providers.docker.exposedbydefault=false"
+      - "--entrypoints.web.address=:80"
+      - "--entrypoints.websecure.address=:443"
+      - "--entrypoints.web.http.redirections.entrypoint.to=websecure"
+      - "--entrypoints.web.http.redirections.entrypoint.scheme=https"
+      - "--certificatesresolvers.letsencrypt.acme.email=brandonkamga237@gmail.com"
+      - "--certificatesresolvers.letsencrypt.acme.storage=/letsencrypt/acme.json"
+      - "--certificatesresolvers.letsencrypt.acme.httpchallenge=true"
+      - "--certificatesresolvers.letsencrypt.acme.httpchallenge.entrypoint=web"
     ports:
       - "80:80"
       - "443:443"
     volumes:
-      - /var/run/docker.sock:/tmp/docker.sock:ro
-      - nginx_certs:/etc/nginx/certs
-      - nginx_vhost:/etc/nginx/vhost.d
-      - nginx_html:/usr/share/nginx/html
-    labels:
-      - "com.github.jrcs.letsencrypt_nginx_proxy_companion.nginx_proxy=true"
-
-  # Génération automatique des certificats Let's Encrypt
-  letsencrypt:
-    image: nginxproxy/acme-companion:latest
-    container_name: nginx_letsencrypt
-    restart: always
-    volumes:
       - /var/run/docker.sock:/var/run/docker.sock:ro
-      - nginx_certs:/etc/nginx/certs
-      - nginx_vhost:/etc/nginx/vhost.d
-      - nginx_html:/usr/share/nginx/html
-      - acme:/etc/acme.sh
-    environment:
-      - NGINX_PROXY_CONTAINER=nginx_proxy
+      - traefik_letsencrypt:/letsencrypt
+    networks:
+      - web
 
-  # Ton portfolio React
-  frontend:
+  portfolio:
     image: brandonkamga237/myporfolio:latest
-    container_name: react_frontend
-    restart: always
-    expose:
-      - "80"  # expose le port 80 pour nginx-proxy
-    environment:
-      - VIRTUAL_HOST=brandonkamga.griote.org
-      - LETSENCRYPT_HOST=brandonkamga.griote.org
-      - LETSENCRYPT_EMAIL=brandonkamga237@gmail.com
+    container_name: myporfolio
+    restart: unless-stopped
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.portfolio.rule=Host(`brandonkamga.griote.org`)"
+      - "traefik.http.routers.portfolio.entrypoints=websecure"
+      - "traefik.http.routers.portfolio.tls.certresolver=letsencrypt"
+      - "traefik.http.services.portfolio.loadbalancer.server.port=80"
+    networks:
+      - web
 
 volumes:
-  nginx_certs:
-  nginx_vhost:
-  nginx_html:
-  acme:
+  traefik_letsencrypt:
+
+networks:
+  web:
+    driver: bridge
