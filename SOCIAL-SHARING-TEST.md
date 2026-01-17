@@ -4,16 +4,16 @@
 
 ### **1. Facebook Debugger**
 URL: https://developers.facebook.com/tools/debug/
-- Testez votre URL: `https://brandonkamga.dev`
+- Testez votre URL: `https://brandonkamga237.dev`
 - Cliquez sur "Scrape Again" si nécessaire
 
 ### **2. Twitter Card Validator**  
 URL: https://cards-dev.twitter.com/validator
-- Testez votre URL: `https://brandonkamga.dev`
+- Testez votre URL: `https://brandonkamga237.dev`
 
 ### **3. LinkedIn Post Inspector**
 URL: https://www.linkedin.com/post-inspector/
-- Testez votre URL: `https://brandonkamga.dev`
+- Testez votre URL: `https://brandonkamga237.dev`
 
 ### **4. WhatsApp Link Preview**
 - Envoyez-vous le lien dans WhatsApp
@@ -40,7 +40,7 @@ URL: https://www.linkedin.com/post-inspector/
 ## 🚨 Problèmes Courants
 
 ### **1. Image ne s'affiche pas**
-- Vérifiez que l'image est accessible: `https://brandonkamga.dev/moi.png`
+- Vérifiez que l'image est accessible: `https://brandonkamga237.dev/moi.png`
 - Format recommandé: 1200x630px (ratio 1.91:1)
 - Taille max: 8MB pour Facebook, 5MB pour Twitter
 
@@ -57,19 +57,19 @@ URL: https://www.linkedin.com/post-inspector/
 
 ```bash
 # Vérifier que l'image est accessible
-curl -I https://brandonkamga.dev/moi.png
+curl -I https://brandonkamga237.dev/moi.png
 
 # Vérifier les métadonnées Open Graph
-curl -s https://brandonkamga.dev | grep -i "og:"
+curl -s https://brandonkamga237.dev | grep -i "og:"
 
 # Vérifier les métadonnées Twitter
-curl -s https://brandonkamga.dev | grep -i "twitter:"
+curl -s https://brandonkamga237.dev | grep -i "twitter:"
 ```
 
 ## 📱 Test sur les Plateformes
 
 ### **WhatsApp**
-1. Envoyez le lien: `https://brandonkamga.dev`
+1. Envoyez le lien: `https://brandonkamga237.dev`
 2. L'aperçu devrait montrer:
    - Titre: "Brandon Kamga - Développeur Full Stack & DevOps Engineer"
    - Description: Votre description de développeur
@@ -77,12 +77,12 @@ curl -s https://brandonkamga.dev | grep -i "twitter:"
 
 ### **LinkedIn**
 1. Créez un nouveau post
-2. Collez le lien: `https://brandonkamga.dev`
+2. Collez le lien: `https://brandonkamga237.dev`
 3. LinkedIn devrait automatiquement charger l'aperçu
 
 ### **Twitter/X**
 1. Créez un nouveau tweet
-2. Collez le lien: `https://brandonkamga.dev`
+2. Collez le lien: `https://brandonkamga237.dev`
 3. L'aperçu devrait apparaître avec la grande image
 
 ## ⚡ Actions Immédiates
