@@ -1,6 +1,7 @@
 import { useState, useEffect, useRef } from 'react';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import { Routes, Route } from 'react-router-dom';
 
 import { Sidebar } from './components/Sidebar';
 import { HeroSection } from './components/HeroSection';
@@ -10,12 +11,16 @@ import { CertificationsSection } from './components/CertificationsSection';
 import { WorkSection } from './components/WorkSection';
 import { ContactSection } from './components/ContactSection';
 import { CursorLightEffect } from './components/CursorLightEffect';
+import ProjectsPage from './pages/Projects';
+import ExperiencesPage from './pages/Experiences';
+import { useTranslation } from './contexts/LanguageContext';
 
 import heroImage from './assets/me.jpeg';
 
-const App = () => {
+const HomePage = () => {
   const [activeSection, setActiveSection] = useState<string>('about');
   const appRef = useRef<HTMLDivElement>(null);
+  const { t } = useTranslation();
 
   /* ----------------------------- GSAP SETUP ----------------------------- */
   useEffect(() => {
@@ -24,23 +29,33 @@ const App = () => {
 
   /* ------------------------ SCROLL SECTION TRACKING ---------------------- */
   useEffect(() => {
-    const handleScroll = () => {
-      const sections = document.querySelectorAll('section');
-      let current = 'about';
+  const handleScroll = () => {
+    const sections = document.querySelectorAll<HTMLElement>('section');
+    const scrollY = window.scrollY;
+    const viewportHeight = window.innerHeight;
+    const pageHeight = document.documentElement.scrollHeight;
 
-      sections.forEach((section) => {
-        const rect = section.getBoundingClientRect();
-        if (rect.top <= 150 && rect.bottom >= 150) {
-          current = section.id;
-        }
-      });
+    // 🔥 1. Bottom de page → contact ACTIF
+    if (scrollY + viewportHeight >= pageHeight - 5) {
+      setActiveSection('contact');
+      return;
+    }
 
-      setActiveSection(current);
-    };
+    // 🔥 2. Détection normale (on STOP dès qu'on trouve)
+    for (const section of sections) {
+      const rect = section.getBoundingClientRect();
 
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
+      if (rect.top <= 150 && rect.bottom >= 150) {
+        setActiveSection(section.id);
+        return;
+      }
+    }
+  };
+
+  window.addEventListener('scroll', handleScroll);
+  return () => window.removeEventListener('scroll', handleScroll);
+}, []);
+
 
   /* -------------------------- SCROLL TO SECTION -------------------------- */
   const scrollToSection = (id: string) => {
@@ -70,17 +85,17 @@ const App = () => {
       {/* ========================= MAIN CONTENT ========================== */}
       <main className="w-full md:w-2/3 md:ml-auto p-8 md:p-12 space-y-32">
         <HeroSection
-          name="Kamga Brandon"
-          role="Fullstack AI Developer"
+          name={t('hero.name')}
+          role={t('hero.role')}
 
-          intro="Passionné par l’ingénierie logicielle, le développement web et le DevOps/Cloud, avec un intérêt marqué pour le machine learning."
+          intro={t('hero.intro')}
 
-          mission="En parallèle, à travers mon agence LesCracks, j’accompagne de jeunes profils ambitieux dans leur montée en compétences afin de faire la différence et d’accéder à des opportunités professionnelles à fort impact."
+          mission={t('hero.mission')}
 
-          primaryCtaText="Me contacter"
+          primaryCtaText={t('hero.ctaPrimary')}
           primaryCtaLink="#contact"
 
-          secondaryCtaText="Visiter LesCracks"
+          secondaryCtaText={t('hero.ctaSecondary')}
           secondaryCtaLink="https://lescracks.com"
           backgroundImage={heroImage}
         />
@@ -93,6 +108,16 @@ const App = () => {
         <ContactSection />
       </main>
     </div>
+  );
+};
+
+const App = () => {
+  return (
+    <Routes>
+      <Route path="/" element={<HomePage />} />
+      <Route path="/projects" element={<ProjectsPage />} />
+      <Route path="/experiences" element={<ExperiencesPage />} />
+    </Routes>
   );
 };
 

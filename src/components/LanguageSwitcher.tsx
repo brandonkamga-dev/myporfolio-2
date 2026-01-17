@@ -1,9 +1,10 @@
 import React from 'react';
 import { Button } from './ui/button';
 import { Globe } from 'lucide-react';
+import { useTranslation } from '../contexts/LanguageContext';
 
 export const LanguageSwitcher: React.FC = () => {
-  const [language, setLanguage] = React.useState('en');
+  const { language, setLanguage } = useTranslation();
 
   const toggleLanguage = () => {
     const newLang = language === 'fr' ? 'en' : 'fr';

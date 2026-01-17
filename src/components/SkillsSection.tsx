@@ -1,5 +1,6 @@
 import React from 'react';
 import { SkillCard } from './SkillCard';
+import { useTranslation } from '../contexts/LanguageContext';
 
 /* Languages */
 import {
@@ -31,15 +32,17 @@ import {
 import { DiJava, DiVisualstudio } from 'react-icons/di';
 
 export const SkillsSection: React.FC = () => {
+  const { t } = useTranslation();
+
   return (
     <section id="skills" className="py-20">
       <h2 className="text-3xl font-bold mb-14 dark:text-white">
-        Skills & Technologies
+        {t('sections.skills.title')}
       </h2>
 
       <div className="space-y-16">
         <SkillTable
-          title="Languages"
+          title={t('sections.skills.languages')}
           skills={[
             { name: 'JavaScript', icon: SiJavascript },
             { name: 'TypeScript', icon: SiTypescript },
@@ -51,7 +54,7 @@ export const SkillsSection: React.FC = () => {
         />
 
         <SkillTable
-          title="Frameworks & Librairies"
+          title={t('sections.skills.frameworks')}
           skills={[
             { name: 'React', icon: SiReact },
             { name: 'Next.js', icon: SiNextdotjs },
@@ -64,7 +67,7 @@ export const SkillsSection: React.FC = () => {
         />
 
         <SkillTable
-          title="Tools"
+          title={t('sections.skills.tools')}
           skills={[
             { name: 'Git', icon: SiGit },
             { name: 'Docker', icon: SiDocker },

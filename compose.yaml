@@ -1,0 +1,25 @@
+version: "3.9"
+
+services:
+  proxy:
+    image: jc21/nginx-proxy-manager:latest
+    container_name: nginx_proxy_manager
+    restart: always
+    ports:
+      - "80:80"
+      - "443:443"
+      - "81:81" # UI
+    volumes:
+      - npm_data:/data
+      - npm_letsencrypt:/etc/letsencrypt
+
+  frontend:
+    image: your-dockerhub-username/react-app:latest
+    container_name: react_frontend
+    restart: always
+    expose:
+      - "80"
+
+volumes:
+  npm_data:
+  npm_letsencrypt:

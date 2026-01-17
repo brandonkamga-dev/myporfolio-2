@@ -1,5 +1,6 @@
 import React from 'react';
 import { Button } from './ui/button';
+import { useTranslation } from '../contexts/LanguageContext';
 
 interface HeroSectionProps {
   name: string;
@@ -19,22 +20,24 @@ interface HeroSectionProps {
 
 export const HeroSection: React.FC<HeroSectionProps> = ({
   name,
-  role = 'Developer',
+  role,
 
-  intro = 'I build reliable and thoughtful digital experiences.',
+  intro,
   mission,
 
-  primaryCtaText = 'Me contacter',
-  primaryCtaLink = '#contact',
+  primaryCtaText,
+  primaryCtaLink,
 
   secondaryCtaText,
   secondaryCtaLink,
 
   backgroundImage,
 }) => {
+  const { t } = useTranslation();
+
   return (
     <section
-      id="hero"
+      id="about"
       className="min-h-screen flex items-center relative overflow-hidden px-6"
     >
       {/* Background */}
@@ -51,7 +54,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
       <div className="relative z-10 max-w-3xl">
         {/* Headline */}
         <h1 className="text-4xl md:text-6xl font-bold mb-6 leading-tight dark:text-white">
-          Hi, my name is
+          {t('hero.greeting')} {name}
           <br />
           <span className="text-blue-600 dark:text-blue-400">
             {name}
@@ -61,21 +64,21 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
         {/* Role */}
         {role && (
           <p className="text-xl md:text-2xl text-gray-600 dark:text-gray-300 mb-6">
-            {role}
+            {t('hero.role')}
           </p>
         )}
 
         {/* Intro */}
         {intro && (
           <p className="text-lg text-gray-500 dark:text-gray-400 mb-4">
-            {intro}
+            {t('hero.intro')}
           </p>
         )}
 
         {/* Mission / LesCracks */}
         {mission && (
           <p className="text-lg text-gray-500 dark:text-gray-400 mb-8">
-            {mission}
+            {t('hero.mission')}
           </p>
         )}
 
@@ -83,13 +86,13 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
         <div className="flex flex-wrap gap-4">
           {primaryCtaText && primaryCtaLink && (
             <Button size="lg">
-              <a href={primaryCtaLink}>{primaryCtaText}</a>
+              <a href={primaryCtaLink}>{t('hero.ctaPrimary')}</a>
             </Button>
           )}
 
           {secondaryCtaText && secondaryCtaLink && (
             <Button variant="outline" size="lg">
-              <a href={secondaryCtaLink}>{secondaryCtaText}</a>
+              <a href={secondaryCtaLink}>{t('hero.ctaSecondary')}</a>
             </Button>
           )}
         </div>

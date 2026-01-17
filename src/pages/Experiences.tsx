@@ -1,6 +1,6 @@
 import React from 'react';
 import { Button } from '../components/ui/button';
-import { ProjectCard } from '../components/ProjectCard';
+import { ExperienceCard } from '../components/ExperienceCard';
 import { CursorLightEffect } from '../components/CursorLightEffect';
 import { ThemeSwitcher } from '../components/ThemeSwitcher';
 import { LanguageSwitcher } from '../components/LanguageSwitcher';
@@ -8,10 +8,10 @@ import { useIsMobile } from '../hooks/use-mobile';
 import { useTranslation } from '../contexts/LanguageContext';
 import { useTranslatedData } from '../hooks/useTranslatedData';
 
-const ProjectsPage = () => {
+const ExperiencesPage = () => {
   const isMobile = useIsMobile();
   const { t } = useTranslation();
-  const { projects } = useTranslatedData();
+  const { experiences } = useTranslatedData();
 
   // Initialize dark mode from localStorage
   React.useEffect(() => {
@@ -22,6 +22,16 @@ const ProjectsPage = () => {
       document.documentElement.classList.add('dark');
     }
   }, []);
+
+  // Trier du plus récent au plus ancien basé sur la période de fin
+  const sortedExperiences = experiences.slice().sort((a, b) => {
+    const getEndYear = (period: string) => {
+      if (period.includes('Aujourd\'hui') || period.includes('Today') || period.includes('Depuis') || period.includes('Since')) return new Date().getFullYear();
+      const match = period.match(/(\d{4})$/);
+      return match ? parseInt(match[1]) : 0;
+    };
+    return getEndYear(b.period) - getEndYear(a.period);
+  });
 
   return (
     <div className="min-h-screen transition-colors duration-300">
@@ -46,16 +56,16 @@ const ProjectsPage = () => {
         {!isMobile && (
           <div className="mb-8">
             <Button variant="outline">
-              <a href="/">← {t('pages.projects.back')}</a>
+              <a href="/">← {t('pages.experiences.back')}</a>
             </Button>
           </div>
         )}
 
-        <h1 className="text-4xl font-bold mb-12 dark:text-white">{t('pages.projects.title')}</h1>
+        <h1 className="text-4xl font-bold mb-12 dark:text-white">{t('pages.experiences.title')}</h1>
 
-        <div className="space-y-16">
-          {projects.map((project, index) => (
-            <ProjectCard key={index} {...project} />
+        <div className="space-y-12">
+          {sortedExperiences.map((experience, index) => (
+            <ExperienceCard key={index} {...experience} />
           ))}
         </div>
       </div>
@@ -63,4 +73,4 @@ const ProjectsPage = () => {
   );
 };
 
-export default ProjectsPage;
+export default ExperiencesPage;

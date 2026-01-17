@@ -1,15 +1,17 @@
 import React from 'react';
 import { Award, ExternalLink } from 'lucide-react';
-import { certifications } from '@/constants/Certification';
+import { useTranslation } from '../contexts/LanguageContext';
+import { useTranslatedData } from '../hooks/useTranslatedData';
 
 
 
 export const CertificationsSection: React.FC = () => {
-
+  const { t } = useTranslation();
+  const { certifications } = useTranslatedData();
 
   return (
     <section id="certifications" className="py-20">
-      <h2 className="text-3xl font-bold mb-12 dark:text-white">Certifications</h2>
+      <h2 className="text-3xl font-bold mb-12 dark:text-white">{t('sections.certifications.title')}</h2>
 
       <div className="space-y-10">
         {certifications.map((cert, index) => (
@@ -28,7 +30,7 @@ export const CertificationsSection: React.FC = () => {
                   className="flex items-center justify-center gap-2 px-4 py-2 bg-blue-600 text-white rounded-lg font-medium hover:bg-blue-700 transition-colors w-full sm:w-auto"
                 >
                   <ExternalLink size={16} />
-                  <a href={cert.link} target="_blank" rel="noopener noreferrer">Vérifier</a>
+                  <a href={cert.link} target="_blank" rel="noopener noreferrer">{t('sections.certifications.verify')}</a>
                 </button>
               </div>
             </div>
