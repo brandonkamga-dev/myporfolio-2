@@ -21,8 +21,8 @@ jobs:
 
       - name: Build & Push Docker image
         run: |
-          docker build -t brandonkamga237/react-app:latest .
-          docker push brandonkamga237/react-app:latest
+          docker build -t brandonkamga237/myporfolio:latest .
+          docker push brandonkamga237/myporfolio:latest
 
       - name: Deploy on VPS
         uses: appleboy/ssh-action@v1
@@ -31,6 +31,13 @@ jobs:
           username: ${{ secrets.VPS_USER }}
           key: ${{ secrets.VPS_SSH_KEY }}
           script: |
-            docker pull brandonkamga237/react-app:latest
-            docker compose down
-            docker compose up -d
+            docker pull brandonkamga237/myporfolio:latest
+
+            docker stop myporfolio || true
+            docker rm myporfolio || true
+
+            docker run -d \
+              --name myporfolio \
+              --restart unless-stopped \
+              -p 80:80 \
+              brandonkamga237/myporfolio:latest
