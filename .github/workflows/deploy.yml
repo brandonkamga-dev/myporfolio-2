@@ -31,13 +31,10 @@ jobs:
           username: ${{ secrets.VPS_USER }}
           key: ${{ secrets.VPS_SSH_KEY }}
           script: |
-            docker pull brandonkamga237/myporfolio:latest
-
-            docker stop myporfolio || true
-            docker rm myporfolio || true
-
-            docker run -d \
-              --name myporfolio \
-              --restart unless-stopped \
-              -p 8080:80 \
-              brandonkamga237/myporfolio:latest
+            cd ~/myporfolio
+            
+            # Pull la nouvelle image
+            docker compose pull portfolio
+            
+            # Redémarrer seulement le service portfolio (pas Traefik)
+            docker compose up -d portfolio
