@@ -33,8 +33,8 @@ jobs:
           script: |
             cd ~/myporfolio
             
-            # Pull la nouvelle image
+            # Pull la nouvelle image depuis Docker Hub
             docker compose pull portfolio
             
-            # Redémarrer seulement le service portfolio (pas Traefik)
-            docker compose up -d portfolio
+            # Recréer le conteneur avec la nouvelle image
+            docker compose up -d --force-recreate --remove-orphans portfolio
