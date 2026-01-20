@@ -1,73 +1,121 @@
-# Welcome to your Lovable project
+# MyPortfolio-2
 
-## Project info
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![React](https://img.shields.io/badge/React-18.3.1-blue.svg)](https://reactjs.org/)
+[![TypeScript](https://img.shields.io/badge/TypeScript-5.5.3-blue.svg)](https://www.typescriptlang.org/)
+[![Vite](https://img.shields.io/badge/Vite-5.4.1-646CFF.svg)](https://vitejs.dev/)
+[![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-3.4.11-38B2AC.svg)](https://tailwindcss.com/)
 
-**URL**: https://lovable.dev/projects/633f9a87-7256-4339-a8c5-5c9f4cb3c025
+A modern and responsive portfolio website built with React, TypeScript and Vite. This project showcases my skills, projects and experiences as a Full Stack Developer and DevOps Engineer.
 
-## How can I edit this code?
+## Online Demo
 
-There are several ways of editing your application.
+[View the Online Portfolio](https://brandonkamga237.griote.org/)
 
-**Use Lovable**
+## Features
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/633f9a87-7256-4339-a8c5-5c9f4cb3c025) and start prompting.
+- **Responsive Design** : Optimized for all devices and screen sizes
+- **Dark/Light Theme** : Seamless switching between themes with smooth transitions
+- **Multilingual Support** : Available in English and French
+- **Interactive Components** : Smooth animations and hover effects
+- **SEO Optimized** : Meta tags, structured data and sitemap included
+- **Performance Focused** : Built with Vite for fast loading times
+- **Accessible** : Following WCAG guidelines for better accessibility
 
-Changes made via Lovable will be committed automatically to this repo.
+## Tech Stack
 
-**Use your preferred IDE**
+### Frontend
+- **React 18** - Modern React with hooks and concurrent features
+- **TypeScript** - Type-safe JavaScript
+- **Vite** - Fast build tool and development server
+- **Tailwind CSS** - Utility-first CSS framework
+- **ShadCN/UI** - Beautiful and accessible UI components
+- **Framer Motion** - Animation library for React
+- **React Router** - Client-side routing
 
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
+### UI Components & Libraries
+- **Radix UI** - Unstyled and accessible UI primitives
+- **Lucide React** - Beautiful icons
+- **React Hook Form** - Performant forms with easy validation
+- **Zod** - TypeScript-first schema validation
+- **TanStack Query** - Powerful data synchronization for React
 
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
+### Development Tools
+- **ESLint** - Code linting
+- **PostCSS** - CSS processing
+- **Autoprefixer** - CSS vendor prefixes
 
-Follow these steps:
+## Getting Started
 
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
+### Prerequisites
 
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
+- Node.js (version 18 or higher)
+- pnpm (recommended) or npm/yarn
 
-# Step 3: Install the necessary dependencies.
-npm i
+### Installation
 
-# Step 4: Start the development server with auto-reloading and an instant preview.
-npm run dev
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/brandonkamga-dev/myporfolio-2.git
+   cd myporfolio-2
+   ```
+
+2. Install dependencies:
+   ```bash
+   pnpm install
+   # or
+   npm install
+   ```
+
+3. Start the development server:
+   ```bash
+   pnpm dev
+   # or
+   npm run dev
+   ```
+
+4. Open [http://localhost:5173](http://localhost:5173) in your browser.
+
+### Build for Production
+
+```bash
+pnpm build
+# or
+npm run build
 ```
 
-**Edit a file directly in GitHub**
+### Preview Production Build
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+```bash
+pnpm preview
+# or
+npm run preview
+```
 
-**Use GitHub Codespaces**
+## Contributing
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
+Contributions are welcome! Feel free to submit a Pull Request.
 
-## What technologies are used for this project?
+1. Fork the project
+2. Create your feature branch (`git checkout -b feature/AmazingFeature`)
+3. Commit your changes (`git commit -m 'Add some AmazingFeature'`)
+4. Push to the branch (`git push origin feature/AmazingFeature`)
+5. Open a Pull Request
 
-This project is built with:
+## License
 
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
-## How can I deploy this project?
+## Contact
 
-Simply open [Lovable](https://lovable.dev/projects/633f9a87-7256-4339-a8c5-5c9f4cb3c025) and click on Share -> Publish.
+**Brandon Kamga**
+- Website: [brandonkamga237.griote.org](https://brandonkamga237.griote.org/)
+- GitHub: [@brandonkamga-dev](https://github.com/brandonkamga-dev)
+- LinkedIn: [Your LinkedIn Profile]
 
-## Can I connect a custom domain to my Lovable project?
+## Acknowledgments
 
-Yes, you can!
-
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
-
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/tips-tricks/custom-domain#step-by-step-guide)
+- [ShadCN/UI](https://ui.shadcn.com/) for the beautiful component library
+- [Tailwind CSS](https://tailwindcss.com/) for the utility-first CSS framework
+- [Vite](https://vitejs.dev/) for the fast build tool
+- [React](https://reactjs.org/) for the amazing frontend library
