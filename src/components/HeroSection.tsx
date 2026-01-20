@@ -54,7 +54,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
       <div className="relative z-10 max-w-3xl">
         {/* Headline */}
         <h1 className="text-4xl md:text-6xl font-bold mb-6 leading-tight dark:text-white">
-          {t('hero.greeting')} {name}
+          {t('hero.greeting')}
           <br />
           <span className="text-blue-600 dark:text-blue-400">
             {name}
