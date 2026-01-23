@@ -111,7 +111,7 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 **Brandon Kamga**
 - Website: [brandonkamga237.griote.org](https://brandonkamga237.griote.org/)
 - GitHub: [@brandonkamga-dev](https://github.com/brandonkamga-dev)
-- LinkedIn: [Your LinkedIn Profile]
+- LinkedIn: [Brandon Kamga](https://www.linkedin.com/in/brandon-duclerc-tamwa-kamga/)
 
 ## Acknowledgments
 
