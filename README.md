@@ -1,5 +1,7 @@
 # MyPortfolio-2
 
+[![GitHub stars](https://img.shields.io/github/stars/brandonkamga-dev/myporfolio-2?style=flat&logo=github)](https://github.com/brandonkamga-dev/myporfolio-2/stargazers)
+
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![React](https://img.shields.io/badge/React-18.3.1-blue.svg)](https://reactjs.org/)
 [![TypeScript](https://img.shields.io/badge/TypeScript-5.5.3-blue.svg)](https://www.typescriptlang.org/)
@@ -111,7 +113,7 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 **Brandon Kamga**
 - Website: [brandonkamga237.griote.org](https://brandonkamga237.griote.org/)
 - GitHub: [@brandonkamga-dev](https://github.com/brandonkamga-dev)
-- LinkedIn: [Your LinkedIn Profile]
+- LinkedIn: [Brandon Kamga](https://www.linkedin.com/in/brandon-duclerc-tamwa-kamga/)
 
 ## Acknowledgments
 
